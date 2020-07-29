@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/categoriesFragment">
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.reschikov.sebbia.testtask.presentation.ui.categories.CategoriesFragment"
+        android:label="CategoriesFragment" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_listShortNewsFragment"
+            app:destination="@id/listShortNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listShortNewsFragment"
+        android:name="com.reschikov.sebbia.testtask.presentation.ui.shortnews.ListShortNewsFragment"
+        android:label="ListShortNewsFragment" >
+        <action
+            android:id="@+id/action_listShortNewsFragment_to_fullNewsFragment"
+            app:destination="@id/fullNewsFragment" />
+        <argument
+            android:name="KEY_CATEGORY_CODE"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullNewsFragment"
+        android:name="com.reschikov.sebbia.testtask.presentation.ui.fullnews.FullNewsFragment"
+        android:label="FullNewsFragment" >
+        <argument
+            android:name="KEY_NEWS"
+            app:argType="com.reschikov.sebbia.testtask.data.net.model.ShortNews" />
+    </fragment>
+</navigation>
